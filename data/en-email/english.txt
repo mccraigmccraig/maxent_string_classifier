@@ -1,0 +1,154 @@
+is it possible the microsoft chap was gray barks, their principle integration manager for corporate development? 
+i spoke to him a year ago. if there's any way to confirm the name i'll get in touch with an update.
+
+Amazon pitched us with their services, apis and M&A opportunities. A guy from M&A (whose name I don't have as he didn't have any business cards) 
+approached me for an update on metascope (he didn't mention the product name but mentioned tyler) so I told them that we are have 
+continued our work with ONA tools but also have very strong offerings in enterprise expertise search for people and knowledge. 
+They said we should catch up with our contact in the UK and keep them aprised of our latest developments. 
+They are quite clearly very interested in what we do (we were they only company they actually approached directly whilst out here).
+
+Microsoft as a whole was not quite what I expected, far less zany and wild than they would have you believe. 
+Yes they have a time share dog and a giant dinosaur in the grounds, all the employees walk around in slightly different 
+blue shirts, there is more food than you can imagine, and there is the (filtered) live search board, but it 
+really does just feel like any other office, all be it slightly prettier.
+
+Everything's been tested for XYZ next week and is all looking good so we're pretty much ready to go with time to spare. 
+I'm now adding some finishing touches to the VM then all will be done.
+
+Ok geekage, it looks like exchange 2003 import is working well and it was in fact outlook which had fail so we're pretty much 
+OK for FGH next week as far as we can test for :)
+
+This is a good thing!
+
+i'm home. i'll get 3 hours sleep then wake up for the hsbc call at 1pm.
+
+Emma is starting work on the infrastructure required to calculate statistics across the whole dataset offline, and then moving on to the 
+freshness/citizenship calculation.
+
+Jan is investigating the data weirdness then adding the concept of organisations to Server and pushing that up into Knowledge Map's search.
+
+I'm working through interface bugs and tidying. There's loads of it.
+
+The board as it stands looks something like:
+
+- improvement of nlp algorithms : statistical parsing, phrase
+extension, phrase grouping/latent semantic indexing
+- improvement of sna algorithms, discovery and visualisaion of :
+shortest path, betweenness, eigenvector centrality, clustering,
+centralisation
+- merging of nlp and sna techniques to analyse theme/info flow and do
+eigenvector centrality analysis on theme flows to identify authorities
+- improvement of authorisation
+- modularisation of interface... permitting module selection by clients
+- delivery of hosted version
+- administrator interface
+- hosted system and appliance administrator interface
+- appliance and clustered appliance
+- move to jms based queueing for horizontal scalability and response
+- clustering with oracle for simplest shared-nothing scaling and
+reliability solution
+- evaluation of using spatial db for sna processing... additional
+complexity
+- evolution of a suite of connectors for common enterprise email,
+document and messaging software
+- web connector, permitting weblog/rss item import, and flow and
+authority analysis on public information
+- rss feeds of just about every list of items
+- knowledge pools
+- discovery
+- web toolbar
+- webdav server
+- imap/pop server
+- im connectors... only possible with server based solutions
+- installation/configuration packages for windows and linux
+
+I got your email about Monday being a Bank Holiday.
+
+I can do tomorrow afternoon  at 4:00, if that's still OK with you.
+I will see you at Victoria Avenue, unless I hear otherwise.
+
+Please find attached the monthly un-audited management accounts for March 2008.
+ 
+Please be advised that I will soon be reporting a more detailed Quarterly set of accounts for the 
+1st quarter 2008 due mid May’08 as per the Company’s obligations.
+ 
+Please do contact me if you have any questions relating to these accounts.
+
+actually a problem with the tests running sequentially, now fixed. 1 failing left, plus solr tests...
+
+Although I had to make quite a few changes in order to be able to run the tests on Windows – mainly 
+because of the completely nuts fact that system(“rake blah”) doesn’t do anything on windows! It has to be system(“rake.bat blah”).
+ 
+So I’ve put in a constant RAKE_CMD = RUBY_PLATFORM.match(/win/) ? "rake.bat" : "rake"
+and changed the rake calls to system(“#{RAKE_CMD} blah”) and that seems to sort it out.
+ 
+Now if only the environment would initialize more quickly, I’d be able to run that manage_admins_spec.rb in less than the 337 seconds it currently takes……
+
+Okay wow...  it'll take some time to fully appreciate this.
+
+Can you comment on your hardware stack?  How many servers are you
+using?  Is there an RDBMS in there somewhere?
+
+How was deployment?
+
+Looks awesome, thanks for sharing!
+
+I'm in favor of auto concatenating multiple string literals at
+compilation, but I am strongly opposed to doing any sort of formatting
+with them.  If you want a new line, you stick a \n in your first
+string; if you want a space, you stick it in there as well.  This:
+
+Implementing the multi-line strings with the backslash is simple
+enough (see my earlier post; I got the line number wrong, by the way,
+it's around 421) but causing them to ignore following whitespace is
+probably a bit harder.  It seems to me that this is a typical problem
+in many programming languages.  Probably the real solution is just to
+use (str ...) and ignore the resultant extra code; unless you're
+printing multi-line messages in a tight loop, I can't imagine it
+having any effect on your program's performance whatsoever.
+
+Anyways, it'd be really cool if the Clojure reader did this. My ideal
+would be that indentation before the continuing line would become one
+space, or perhaps something similar. I don't think it would make
+Clojure too much more complicated—in my mind, any small complication
+would be worth the readability. How hard would this be to implement?
+Would this be syntactically ambiguous?
+
+Thank you for this "higher level" perspective. Sometimes I (we?) get
+caught up in the details - the old "forest vs trees" problem.
+
+It seems to me that the real solution is that the Clojure compiler
+needs to support global constants.  You could probably emulate the
+behaviour by rebinding global vars inside the let though.
+
+Last week saw a continuation of the impenetrably misguided policy response to this 
+financial crisis, which seeks to address the downturn by encouraging more of what got us 
+into this mess in the first place. The U.S. Treasury's toxic assets plan, for instance, 
+looks to "leverage" public funds (with the FDIC providing the "6-to-1 leverage") in order to 
+defend the bondholders of mismanaged financials who took excessive leverage. At the same time, the 
+Treasury plans to limit the "competitive bidding" to a few hand-picked "managers" who will be 
+encouraged to overpay thanks to put options granted at public expense. This is a recipe for the 
+insolvency of the FDIC and an attempt to bail out bank bondholders using funds that have not even 
+been allocated by Congress. The whole plan is a bureaucratic abuse of the FDIC's balance 
+sheet, which exists to protect ordinary depositors, not bank bondholders.
+
+Ah, I didn't see that bit before. It is rather nice. Actually, the  
+more I play, the more I like the whole shebang...
+
+markdown might be ok, though there might be some issues :
+
+- markdown doesn't support more complex constructs like tables, tho multimarkdown appears to offer this
+- the path from [multi]markdown to pdf appears to be via latex... which might be fine, 
+though tex documents have a rather special look about them... at least they used to
+
+on the positive side :
+
+- [multi]markdown would be a damn site easier to merge than docbook tho, which is a 
+big win since the very point of using a text format is versioning and ease of merging
+- there's a textmate bundle for [multi]markdown
+- there's an emacs mode for markdown. don't know how this would handle mmd
+
+we should take [multi]markdown for a ride
+
+
+

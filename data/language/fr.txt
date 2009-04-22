@@ -1,0 +1,55 @@
+Non, c'est a Paris, on va probablement aller chez RedBus d'ici 2
+semaines.
+
+Je demandais juste au cas ou` t'etais a Paris par hsard vu que tout
+s'est tres bien passe la derniere fois a Aubervilliers.
+
+Merci jan ! j'ai tout eu.
+Ne t'inquietes pas, je ne me perderais pas. J'espere..
+Dis, ta station c'est "R", t'es sur?=20
+A tres bien tot donc!!
+
+je t'ai envoye un plan de bus, de l'hotel il faut prendre le bus
+numero 149 ... l'arret ou il faut descrendre c'est R (il y a une
+station de police a ta gauche). je pense que ca va mettre une bonne
+demi heure de london bridge. sinon tu peux egalement prendre le 243,
+76, 67, 73, ou 476 (alors que ca ne part pas de london bridge).
+
+sinon le numero au bureau c'est le +44 (0)20 6734 8765 
+
+a bientot !
+
+Salut Jan,
+Sympa d'avoir de tes nouvelles ! Effectivement j'habite maintenant a
+l'angle de Curtain Road et Great Eastern Street, en face d'un pub appele le
+Old Blue Last, pres de Old Street et derriere la grande station Texaco qui
+est en face de l'hotel construit par ton colloc... J'espere qu'avec toutes
+ces info, tu arrives a situer !!!
+Effectivement ce serait sympa de se voir un de ces jours. Si tu veux
+m'appeler, mon portable est le 01234 11 22 33.
+Pour l'instant je ne peux pas trop te dire quand parce que je ne sais pas
+toujours a quelle heure je quitte le travail, mais on peut se tenir au
+courant dans la semaine par emails. Ce soir, par contre c'est possible.
+
+Tiens moi au courant quand Eleonor viant a Londres aussi,
+
+A plus tard, bonne journee,
+
+salut antoine ,
+
+ca va ?? ca te plait toujours a londres ?
+eleonore m'a raconte que t'habites a shoreditch maintenant... t'avais
+envie d'habiter dans un quartier un peu plus branche ? ;-)
+
+moi je travaille a shoreditch (pres de hoxton square), et j'ai
+toujours ton t-shirt, donc si t'as envie de boire un coup le soir dis
+moi. par contre, j'ai pas de portable en ce moment...
+
+Avec les originaux ça se passe comment ?
+
+Dans tous les cas, vérifie bien tes soudures "CDVD". Au mieux, fait des 
+tests avec un testeur de continuité entre la puce et le DSP directement. 
+Si je me souviens bien, tu n'as pas soudé sur le DSP, mais sur les vias. 
+Si c'est "pas facile" de souder sur le DSP, c'est facile de poser la 
+pointe du testeur.
+

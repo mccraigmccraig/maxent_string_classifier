@@ -1,0 +1,55 @@
+Sinon la crystal, lorsqu'elle fonctionne, se moque bien de la propreté 
+de l'installation.
+
+Salut jan, j'espère que tu vas bien, 
+ 
+effectivement, je suis une handicapée des ordinateurs
+
+Merci pour ton mesage d'aide, j'ai juste une question qui m'empèche de démarrer, peux tu me rappeler 
+qu'est ce que c'est que internet explorer (j'ai wanadoo)
+ 
+bise
+
+fais une recherche de dossier (dans -> start, chercher (je sais pas
+trop comment ca s'appelle en francais, le truc avec le petit chien
+quoi)
+
+cherche tous les dossiers avec le nom i-worm.finaldo.a.exe, sur tous
+les lecteurs disque dur (C:, D: etc.)
+
+quand il y a la liste avec les noms, clique sur le nom et appuie sur
+"supp", et confirm la suppression
+
+c'est pas du tout sur si ca marche, ca l'air un peu trop facile, mais
+essaies quand-meme
+
+sinon j'ai trouve ca: http://www.secuser.com/antivirus/index.htm
+(antivirus en ligne)
+
+Commencez par changer les paramètres de sécurité concernant les Active-X:
+
+Ouvrez Internet Explorer
+Ouvrez ensuite le menu "Outils"
+Puis "Options Internet"
+Dans l'onglet "Sécurité", cliquez sur "Personnaliser le Niveau"
+Descendez dans la liste et cochez les cases suivantes:
+"Contrôles Active-X reconnus sûrs pour l'exécution de scripts"
+Activer
+"Télécharger les Contrôles Active-X signés"
+Demander
+"Télécharger les Contrôles Active-X non signés"
+Demander
+ "Exécuter les Contrôles Active-X et les Plugins"
+Activer
+Puis validez par OK, Appliquer et OK
+ Redémarrez votre Navigateur et réessayez de vous connecter sur
+
+peut-etre du devrais essayer ca d'abord.
+
+bonne chance !!
+
+n'hesite pas d'envoyer un mail si t'as des problemes
+
+J'ai eu ton mail mais en ce moment, je suis charette en ce moment.
+On a pas de planning précis pour ça mais je te contacte bientot.
+

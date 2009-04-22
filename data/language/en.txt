@@ -1,0 +1,124 @@
+is it possible the foom chap was bob pink, their principle integration manager for corporate development? 
+i spoke to him a year ago. if there's any way to confirm the name i'll get in touch with an update.
+
+Hoop as a whole was not quite what I expected, far less zany and wild than they would have you believe. 
+Yes they have a time share dog and a giant dinosaur in the grounds, all the employees walk around in 
+slightly different blue shirts, there is more food than you can imagine, and there is the (filtered) 
+live search board, but it really does just feel like any other office, all be it slightly prettier.
+
+Everything's been tested for XYZ next week and is all looking good so we're pretty much ready to go with time to spare. 
+I'm now adding some finishing touches to the VM then all will be done.
+
+Ok geekage, it looks like exchange 2003 import is working well and it was in fact outlook which had fail so we're 
+pretty much OK for XYZ next week as far as we can test for :)
+
+This is a good thing!
+
+i'm home. i'll get 3 hours sleep then wake up for the hsbc call at 1pm.
+
+Emma is starting work on the infrastructure required to calculate statistics across the whole dataset offline, and 
+then moving on to the freshness/citizenship calculation.
+
+Jan is investigating the data weirdness then adding the concept of organisations to Server and pushing that up into Knowledge Map's search.
+
+I'm working through interface bugs and tidying. There's loads of it.
+
+The board as it stands looks something like:
+
+After trawling through some eye-gouging time zone bugs, the build is clean. (For those who are interested - please use mysql's 
+utc_timestamp() function, and not now(), which is evil.
+
+Jon, I don't know what the status of the Exchange connector specs is, but if the build is testing Exchange then the tests are passing. 
+If not... well, then it's anyone's guess :-)
+
+on friday at 12:30 we're having an all-hands "sharepoint megamix" session lasting 60-90 minutes. there are four objectives:
+
+what the fuck is sharepoint?
+what do people do with it?
+brainstorm lightweight integrations for sonar to sharepoint
+
+we need to get sharepoint up and running for this (sorry thomas). we also need to find someone who actually uses the wretched thing.
+
+jon/al/will do you know if they uses sharepoint? might mark be willing to come in to talk for 15 minutes about how they use it,
+where the value is and where the shortcomings are? failing that he could talk to one of you in sufficient detail
+so you can relay it to the rest of us.
+
+I have spoken with James Stone and they now have the presentation of recommendations from the Design Team we had the
+Immerse Day with here at our office.
+ 
+We now need to schedule a 2 hour meeting to have this presentation delivered to us by Andy. 
+After this we will need to agree on the actions we are going to take forward and prepare for Thursday 7th May
+when we will have to give a 15-20 min presentation to all the members of the programme @ Grant Thornton 
+offices to detail how we are going to engage with the project.
+ 
+One real issues now is Robert and Jon being away for the end of next week - June’s availability over the next few weeks is:
+
+ah you're a star, thanks! 
+
+good to hear. everything fine this side, tho will probably be posting to coding horror any day now. just need a suitable nom de plume.
+
+see u at salad factory
+
+hi craig, quick favour to ask, can you please send me your gitk visual settings again? gitk on my machine still makes my eyes bleed.
+
+hope all is well in the trampery!
+
+Ey up
+ 
+Just a quick request to make all our lives a bit easier – if you log tickets in trac, can you try and remember to set the 
+“Component” correctly? There’s loads of options there (e.g. config, deployment, admin-ui, theme-extraction, etc) and they 
+all have a different default owner – so if you log the ticket to the right component, then it gets assigned to the right person auto-magically.
+
+today is the target for delivery of the m1 milestone which should be feature-complete except the two points noted 
+by al (below). how are we doing? should we get together for a quick presentation?
+
+oh god, i forgot that was on the intertubes. tnx god it's not meta-linked to any of my real-world names or aliases!
+
+European Identity Conference (EIC) is the place to meet with enterprise technologists, thought leaders and experts to 
+learn about, discuss and shape the market in most significant technology topics such as Identity Management, Governance, 
+Risk Management and Compliance (GRC) and Service Oriented Architecture (SOA). With its world class list of speakers, 
+a unique mix of best practices presentations, panel discussions, thought leadership statements and analyst views, 
+EIC has become an absolute must-attend event for enterprise IT leaders from all over Europe.
+
+i'm feeling decidedly off today, and feel a day of lemsip and dressing gowns is in order. I have a few things that need 
+finishing on kmap that I will work on though.
+
+It'd be a terrible cliché to wake up 2 hours late the morning after my leaving drinks, face stuck to the pillow, 
+confused about my location and just glad that I appear to still be wearing pants.
+
+The fridge is mingin’ and there are a lot of Jan/Feb/Mar past sell by items that really should have moved on – 
+so I have popped them in the bin. If the little bits of butter or half finished pack of pineapple/kiwi etc.. is yours 
+and you think I shouldn’t have – then I will gladly replace. Just let me know!
+
+As ontologies proliferate and automatic reasoners become more powerful, the problem of protecting sensitive information becomes 
+more serious. In particular, as facts can be inferred from other facts, it becomes increasingly likely that information 
+included in an ontology, while not itself deemed sensitive, may be able to be used to infer other sensitive information.
+We first consider the problem of testing an ontology for safeness defined as its not being able to be used to derive 
+any sensitive facts using a given collection of inference rules. We then consider the problem of optimizing an 
+ontology based on the criterion of making as much useful information as possible available without revealing any sensitive facts.
+
+Also: there are still some spaces for the new closed group series, Surfing in the City, which begins on the 14th April 
+and runs fortnightly on Tuesdays for 5 sessions. This is an opportunity to dance at St Peter's in a smaller group 
+with focussed intent, and is open to dancers with some grounding and experience in 5Rhythms (ie, who have been dancing 
+regularly for minimum 3-6months weekly/fortnightly, or have previously participated in ongoing groups or weekend workshops.) Full details below.
+
+i vote we have at least one hopper of good dark roast beans suitable for espresso. personally i'm more motivated by 
+flavour than caffeine content though i suspect that puts me in a slender minority.
+
+We are excited today to introduce the public beta of Amazon Elastic MapReduce, a web service that enables businesses, 
+researchers, data analysts, and developers to easily and cost-effectively process vast amounts of data. It utilizes a 
+hosted Hadoop framework running on the web-scale infrastructure of Amazon Elastic Compute Cloud (Amazon EC2) and 
+Amazon Simple Storage Service (Amazon S3).
+
+Using Amazon Elastic MapReduce, you can instantly provision as much or as little capacity as you like to perform 
+data-intensive tasks for applications such as web indexing, data mining, log file analysis, machine learning, financial 
+analysis, scientific simulation, and bioinformatics research. Amazon Elastic MapReduce lets you focus on crunching or 
+analyzing your data without having to worry about time-consuming set-up, management or tuning of Hadoop clusters or the 
+compute capacity upon which they sit.
+
+Working with the service is easy: Develop your processing application using our samples or by building your own, 
+upload your data to Amazon S3, use the AWS Management Console or APIs to specify the number and type of instances 
+you want, and click "Create Job Flow." We do the rest, running Hadoop over the number of specified instances, providing 
+progress monitoring, and delivering the output to Amazon S3.
+
+

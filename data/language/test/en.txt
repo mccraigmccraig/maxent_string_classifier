@@ -1,0 +1,34 @@
+
+alternatively is there anyone else we can think of who could tell us about how sharepoint is used in a big corporation? sanjay at gkn?
+
+lul. is there a gallery with "best of amazon" reviews somewhere on the webs? if not it should be done.
+
+i just discovered it's possible to dismantle the visualisation and make pretty designs with the pieces
+
+I had a look at the messages on tryfan and I don't think the problem is draft messages.
+I could not find partial messages (consistent with drafts). I did find 12(!) duplicates of the
+same messages with different file names ('ddddd-ddddd.msg') - most likely these are
+the messages distributed via the mailman list to the various recipients.
+
+I think email_message_appends (or whatever) does not handle duplicate
+messages in the system correctly (as opposed to the duplicates we created
+when rsyncing between the servers).
+
+Due to it being Easter, St Peter's Church is not available for Thursday 9th April. Our usual alternative venue, 
+the Synergy Centre is in the process of moving location so we are temporarily homeless. There's a couple of 
+options being followed up, but if anyone knows of a suitable and available venue for Sweaty Thursday, please get in touch.
+
+This sounds familiar:
+
+This code does three things:
+    * Runs a web app that allows you to manage a set of media sources and their feeds.
+    * Periodically crawls the feeds setup within the web app and downloads any new stories found within the downloaded feeds.
+    * Extracts the substantive text from the downloaded story content (minus the ads, navigation, comments, etc) 
+and associates a set of tags with each story based on that extracted text.
+
+The system is written perl on top of postgres and uses the catalyst web application framework for the web application.
+
+We've been running the code for almost a year now in production, but we're publishing this as an alpha 
+release because we have not extensively documented the installation or use of the system.
+
+

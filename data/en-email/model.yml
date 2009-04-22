@@ -1,0 +1,9 @@
+--- 
+:cutoff: 0
+:featuresets:
+- :word_counts
+- :c_cap_word
+- :c_natnum
+- :c_telno
+- :c_url
+- :c_email
