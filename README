@@ -1,3 +1,33 @@
 a JRuby maxent classifier for string data, based on the OpenNLP Maxent framework
 
+it's easy to build your own classifier... look in the data directory for two examples
 
+
+--
+
+jgem sources -a http://gems.github.com
+jgem install mccraigmccraig-maxent_string_classifier
+
+--
+require 'rubygems'
+require 'maxent_string_classifier'
+
+# train and persist a model with a directory name. 
+# training data for each outcome is in .txt files in the directory. 
+# a model.yml file defines features to be used for contexts, and training params
+#
+# is written as a .txt.gz file in the directory
+model = MaxentStringClassifier::Loader.train( "/Users/mccraig/language" )
+
+# load a model with it's directory name. .txt.gz model and model.yml are required
+model = MaxentStringClassifier::Loader.load( "/Users/mccraig/language" )
+
+# classify
+model.classify( "je voudrais une chambre" )
+model.classify( "i am going to buy an elephant" )
+
+# classify with a margin of certainty
+model.classify_margin( "i am une chambre", 1.1)
+
+# models in data dir are loaded with relative path
+MaxentStringClassifier::Loader.load( "language" )
