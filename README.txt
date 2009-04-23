@@ -1,16 +1,27 @@
 = maxent_string_classifier
 
+this code was developed by trampoline systems [ http://trampolinesystems.com ]
+as part of its sonar platform and released under a BSD licence for community use
+
 http://www.github.com/mccraigmccraig/maxent_string_classifier
 
 == DESCRIPTION:
 
-a JRuby maxent classifier for string data, based on the OpenNLP Maxent framework.
+a JRuby maxent classifier for string data, based on the OpenNLP Maxent framework
+[ http://maxent.sourceforge.net/ ].
 
-it's easy to build your own classifier... look in the data directory for two examples
+it's easy to build your own classifier... look in the data directory for two
+examples
 
-== FEATURES/PROBLEMS:
+== FEATURES:
 
-* FIX (list of features or problems)
+- train classifiers for string data using files of manually classified examples
+- classify string data
+
+== PROBLEMS:
+
+- set of features available for classification is fixed... new features require
+code change
 
 == SYNOPSIS:
 
@@ -21,10 +32,11 @@ require 'maxent_string_classifier'
 # training data for each outcome is in .txt files in the directory. 
 # a model.yml file defines features to be used for contexts, and training params
 #
-# is written as a .txt.gz file in the directory
+# the model is written as a .txt.gz file in the directory
 model = MaxentStringClassifier::Loader.train( "/Users/mccraig/language" )
 
-# load a model with it's directory name. .txt.gz model and model.yml are required
+# load a model with it's directory name. .txt.gz model and model.yml are
+# required
 model = MaxentStringClassifier::Loader.load( "/Users/mccraig/language" )
 
 # classify
@@ -48,25 +60,30 @@ sudo jgem install mccraigmccraig-maxent_string_classifier
 
 == LICENSE:
 
-(The MIT License)
+(The BSD License)
 
-Copyright (c) 2009 FIX
+Copyright (c) 2009, Trampoline Systems Ltd, http://trampolinesystems.com/
+All rights reserved.
 
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-'Software'), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
 
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
+  * Redistributions of source code must retain the above copyright notice,
+    this list of conditions and the following disclaimer.
+  * Redistributions in binary form must reproduce the above copyright notice,
+    this list of conditions and the following disclaimer in the documentation
+    and/or other materials provided with the distribution.
+  * Neither the name of the <ORGANIZATION> nor the names of its contributors may
+    be used to endorse or promote products derived from this software without
+    specific prior written permission.
 
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.

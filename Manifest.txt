@@ -3,6 +3,7 @@ Manifest.txt
 README.txt
 Rakefile
 data/en-email/disclaimer.txt
+data/en-email/en-email.txt.gz
 data/en-email/english.txt
 data/en-email/model.yml
 data/en-email/sig.txt
@@ -11,6 +12,7 @@ data/language/af.txt
 data/language/de.txt
 data/language/en.txt
 data/language/fr.txt
+data/language/language.txt.gz
 data/language/model.yml
 data/language/no.txt
 data/language/test/af.txt

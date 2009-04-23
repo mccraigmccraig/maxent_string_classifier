@@ -8,14 +8,14 @@ Gem::Specification.new do |s|
   s.description = %q{maxent_string_classifier is a JRuby library, which wraps the OpenNLP Maxent classifier and makes it easy to train and use string classifiers}
   s.email = %q{craig@trampolinesystems.com}
   s.extra_rdoc_files = ["History.txt", "Manifest.txt", "README.txt"]
-  s.files = ["History.txt", "Manifest.txt", "README.txt", "Rakefile", "data/en-email/disclaimer.txt", "data/en-email/english.txt", "data/en-email/model.yml", "data/en-email/sig.txt", "data/en-email/sql.txt", "data/language/af.txt", "data/language/de.txt", "data/language/en.txt", "data/language/fr.txt", "data/language/model.yml", "data/language/no.txt", "data/language/test/af.txt", "data/language/test/de.txt", "data/language/test/en.txt", "data/language/test/fr.txt", "data/language/test/no.txt", "init.rb", "lib/maxent-3.0.0.jar", "lib/maxent_string_classifier.rb", "maxent_string_classifier.gemspec", "spec/maxent_string_classifier_spec.rb"]
+  s.files = ["History.txt", "Manifest.txt", "README.txt", "Rakefile", "data/en-email/disclaimer.txt", "data/en-email/en-email.txt.gz", "data/en-email/english.txt", "data/en-email/model.yml", "data/en-email/sig.txt", "data/en-email/sql.txt", "data/language/af.txt", "data/language/de.txt", "data/language/en.txt", "data/language/fr.txt", "data/language/language.txt.gz", "data/language/model.yml", "data/language/no.txt", "data/language/test/af.txt", "data/language/test/de.txt", "data/language/test/en.txt", "data/language/test/fr.txt", "data/language/test/no.txt", "init.rb", "lib/maxent-3.0.0.jar", "lib/maxent_string_classifier.rb", "maxent_string_classifier.gemspec", "spec/maxent_string_classifier_spec.rb"]
   s.has_rdoc = true
-  s.homepage = %q{http://www.github.com/mccraigmccraig/maxent_string_classifier}
+  s.homepage = %q{this code was developed by trampoline systems [ http://trampolinesystems.com ]}
   s.rdoc_options = ["--main", "README.txt"]
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{maxent_string_classifier}
   s.rubygems_version = %q{1.2.0}
-  s.summary = %q{a JRuby maxent classifier for string data, based on the OpenNLP Maxent framework}
+  s.summary = %q{a JRuby maxent classifier for string data, based on the OpenNLP Maxent framework [ http://maxent.sourceforge.net/ ]}
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION

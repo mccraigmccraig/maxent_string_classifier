@@ -9,7 +9,6 @@ require 'hoe'
 require 'lib/maxent_string_classifier'
 
 CLEAN << 'pkg'
-CLEAN.insert( -1, *FileList["data/**/*.txt.gz"] )
 
 $LOAD_PATH << "lib"
 
