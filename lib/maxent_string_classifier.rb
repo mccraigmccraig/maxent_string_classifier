@@ -27,6 +27,8 @@ require 'logger'
 # compiled models are written to the model directory
 module MaxentStringClassifier
 
+  VERSION = "0.1.0"
+
   module Logger
     class << self
       attr_accessor :logger

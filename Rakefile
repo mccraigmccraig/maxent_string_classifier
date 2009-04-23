@@ -5,17 +5,26 @@ require 'rake'
 require 'rake/gempackagetask'
 require 'rake/clean'
 require 'spec/rake/spectask'
+require 'hoe'
+require 'lib/maxent_string_classifier'
 
 CLEAN << 'pkg'
 CLEAN.insert( -1, *FileList["data/**/*.txt.gz"] )
 
 $LOAD_PATH << "lib"
 
-gemspec = eval( File.read( File.join( File.dirname(__FILE__), 'maxent_string_classifier.gemspec' ) ) )
+gemspec = File.join( File.dirname(__FILE__), 'maxent_string_classifier.gemspec' )
 
-Rake::GemPackageTask.new(gemspec) do |pkg|
-  pkg.need_zip = true
-  pkg.need_tar = true
+Hoe.new("maxent_string_classifier", MaxentStringClassifier::VERSION ) do |p|
+  p.description = %q{maxent_string_classifier is a JRuby library, which wraps the OpenNLP Maxent classifier and makes it easy to train and use string classifiers}
+  p.email =  "craig@trampolinesystems.com"
+  p.author =  "craig mcmillan"
+  p.testlib = "spec"
+end
+
+task :cultivate => [:build_models] do
+  system "touch Manifest.txt; jrake check_manifest | grep -v \"(in \" | patch"
+  system "jrake debug_gem | grep -v \"(in \" > #{gemspec}"
 end
 
 # add a dependency to the :gem task
