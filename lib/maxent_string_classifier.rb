@@ -1,6 +1,6 @@
 raise "JRuby only" if RUBY_PLATFORM !~ /java/i
 
-require File.join( File.dirname(__FILE__), "maxent-3.0.0.jar")
+require Dir[ File.join( File.dirname(__FILE__), "maxent-*.jar") ].first
 require 'yaml'
 require 'logger'
 
