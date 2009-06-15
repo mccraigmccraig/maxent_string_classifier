@@ -1,6 +1,8 @@
 raise "JRuby only" if RUBY_PLATFORM !~ /java/i
 
-require Dir[ File.join( File.dirname(__FILE__), "maxent-*.jar") ].first
+Dir[ File.join( File.dirname(__FILE__), "*.jar") ].each do |f|
+  require f
+end
 require 'yaml'
 require 'logger'
 
@@ -54,9 +56,13 @@ module MaxentStringClassifier
 
   include Logger
 
-  GIS = ::Java::OpennlpMaxent::GIS
+  MAXENT = ::Java::OpennlpMaxent
+  MODEL = ::Java::OpennlpMaxent
+  IO = ::Java::OpennlpMaxentIo
 
-  class Event < ::Java::OpennlpModel::Event
+  GIS = MAXENT::GIS
+
+  class Event < MODEL::Event
     def initialize(outcome, context, values=nil )
       super(outcome, 
             (context.to_java(:string) if context),
@@ -167,7 +173,7 @@ module MaxentStringClassifier
   end
 
   class FilesetEventStream
-    include ::Java::OpennlpModel::EventStream
+    include MODEL::EventStream
     include Logger
     
     attr_reader :context_generator
@@ -196,6 +202,11 @@ module MaxentStringClassifier
 #          context.zip(values).each{ |(ctx,val)| $stdout << ctx << " = " << val.to_s << "\n" }
         end
       end
+    end
+
+    # maxent 2.5.2 compatability
+    def nextEvent()
+      self.next()
     end
 
     def next()
@@ -245,13 +256,13 @@ module MaxentStringClassifier
     end
 
     def write(file)
-      writer = ::Java::OpennlpMaxentIo::SuffixSensitiveGISModelWriter.new( @maxent_model, ::Java::JavaIo::File.new(file) )
+      writer = IO::SuffixSensitiveGISModelWriter.new( @maxent_model, ::Java::JavaIo::File.new(file) )
       writer.persist
       self
     end
 
     def self.load(context_generator, file)
-      reader = ::Java::OpennlpMaxentIo::SuffixSensitiveGISModelReader.new( ::Java::JavaIo::File.new( file ))
+      reader = IO::SuffixSensitiveGISModelReader.new( ::Java::JavaIo::File.new( file ))
       new( reader.getModel(), context_generator )
     end
 
