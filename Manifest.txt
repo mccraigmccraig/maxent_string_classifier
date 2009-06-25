@@ -2,12 +2,6 @@ History.txt
 Manifest.txt
 README.txt
 Rakefile
-data/en-email/disclaimer.txt
-data/en-email/en-email.txt.gz
-data/en-email/english.txt
-data/en-email/model.yml
-data/en-email/sig.txt
-data/en-email/sql.txt
 data/language/af.txt
 data/language/de.txt
 data/language/en.txt
@@ -21,7 +15,8 @@ data/language/test/en.txt
 data/language/test/fr.txt
 data/language/test/no.txt
 init.rb
-lib/maxent-3.0.0.jar
+lib/maxent-2.5.2.jar
 lib/maxent_string_classifier.rb
+lib/trove.jar
 maxent_string_classifier.gemspec
 spec/maxent_string_classifier_spec.rb

@@ -2,3 +2,7 @@
 
 * initial release
 
+=== 0.2.0 / 2009-06-15
+
+* backport to maxent.sourceforge.net v2.5.2 : this is the released version against
+  which the released opennlp lib is compiled
