@@ -28,7 +28,7 @@ module MaxentStringClassifier
     it "should have a c_tokens featureset which counts tokens" do
       g = ContextGenerator.new(:c_token)
       str = "I'm working through interface bugs and tidying. There's loads of it."
-      toks = g.cleanup.call( str ).split
+      toks = g.cleanup( str ).split
       ctx = g.generate( str )
       ctx["c_token"].should ==(toks.length)
     end
@@ -79,7 +79,7 @@ module MaxentStringClassifier
     describe "cleanup" do
       it "should split punctuation away from words" do
         g = ContextGenerator.new(:c_token)
-        g.cleanup.call("+words\" with, ?punctuation! . attached# %@front (and& back*").gsub(/ +/, ' ').should ==(
+        g.cleanup("+words\" with, ?punctuation! . attached# %@front (and& back*").gsub(/ +/, ' ').should ==(
           "+ words \" with , ? punctuation ! . attached # %@ front ( and & back *" )                                                                                                        
       end
     end

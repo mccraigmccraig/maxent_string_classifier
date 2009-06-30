@@ -74,7 +74,7 @@ module MaxentStringClassifier
     include Logger
 
     attr_accessor :featuresets
-    attr_accessor :cleanup
+    attr_accessor :cleanup_proc
 
     # jruby/joni && ruby1.9/oniguruma regexps are broken, so can't use POSIX [:punct:] class
     # http://jira.codehaus.org/browse/JRUBY-3581
@@ -85,19 +85,23 @@ module MaxentStringClassifier
       raise "must give some featureset names" if @featuresets.length == 0
       
       if cleanup.nil?
-        @cleanup = Proc.new{ |str| str.gsub( /(\s|^)([#{PUNCT}]*)(\w+)([#{PUNCT}]*)(?=\s|$)/ , '\1\2 \3 \4').gsub(/\s+/,' ') }
+        @cleanup_proc = Proc.new{ |str| str.gsub( /(\s|^)([#{PUNCT}]*)(\w+)([#{PUNCT}]*)(?=\s|$)/ , '\1\2 \3 \4').gsub(/\s+/,' ') }
       elsif cleanup.is_a? Proc
-        @cleanup = cleanup
+        @cleanup_proc = cleanup
       else
         raise "cleanup should be a Proc"
       end
+    end
+
+    def cleanup(str)
+      cleanup_proc.call(str)
     end
 
     def generate(str)
       context = {}
 
       # cleanup str text
-      str = cleanup.call( str )
+      str = cleanup( str )
       
       featuresets.each do |featureset_name|
         append_featureset_context(context, featureset_name, str)
@@ -154,7 +158,7 @@ module MaxentStringClassifier
     
     # a featureset which defines a feature for each word occuring in the string, with a count
     def word_counts_context( str )
-      str.downcase.split().inject(Hash.new(0.0)){ |cnts,str| cnts["w:#{str}"] += 1 ; cnts }
+      str.downcase.split().select{ |w| w=~ /[[:alpha:]]+/ }.inject(Hash.new(0.0)){ |cnts,str| cnts["w:#{str}"] += 1 ; cnts }
     end
 
     # a featureset which defines a feature for each character occuring in the string, with a count
@@ -166,6 +170,7 @@ module MaxentStringClassifier
     def_split_select_feature( :c_word,     /[[:alpha:]]+/ )
     def_split_select_feature( :c_cap_word, /[[:upper:]]\w*/ )
     def_split_select_feature( :c_natnum,   /^\d+$/ )
+    def_split_select_feature( :c_punct, /[#{PUNCT}]+/ )
 
     def_regex_feature( :c_telno,  /([\d\+\-\(\)][\d\+\-\(\)\s]{3,})[^\d\+\-\(\)]/ )
     def_regex_feature( :c_url,   /(?:(?:http|ftp|mailto)\:\S+)|(?:www\.(?:\w+\.)+\w+)/ )
