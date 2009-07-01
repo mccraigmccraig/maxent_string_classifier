@@ -85,7 +85,7 @@ module MaxentStringClassifier
       raise "must give some featureset names" if @featuresets.length == 0
       
       if cleanup.nil?
-        @cleanup_proc = Proc.new{ |str| str.gsub( /(\s|^)([#{PUNCT}]*)(\w+)([#{PUNCT}]*)(?=\s|$)/ , '\1\2 \3 \4').gsub(/\s+/,' ') }
+        @cleanup_proc = Proc.new{ |str| str.gsub( /(\s|^)([#{PUNCT}]*)(\w+)([#{PUNCT}]*)(?=\s|$)/ , '\1\2 \3 \4').gsub(/\s+/,' ').gsub(/\\[tnrfbaes]/, ' ') }
       elsif cleanup.is_a? Proc
         @cleanup_proc = cleanup
       else
@@ -135,19 +135,36 @@ module MaxentStringClassifier
     module FeatureGenerators
       # def a featureset which defines a single feature by scanning with a regex pattern and counting the result
       def def_regex_feature( name, pattern )
+        self.send(:define_method, name.to_s + "_scan") do |str|
+          str.scan( pattern )
+        end
+
         self.send(:define_method, name.to_s + "_context") do |str|
-          { name.to_s => str.scan( pattern ).length }
+          { name.to_s => self.send( name.to_s + "_scan", str ).length }
         end
       end
 
       # def a featureset which defines a single feature by splitting the str, then selecting with a regex, and counting
       def def_split_select_feature( name, pattern, split_pattern = nil)
-        self.send(:define_method, name.to_s + "_context" ) do |str|
+        self.send(:define_method, name.to_s + "_split" ) do |str|
           if split_pattern
-            { name.to_s => str.split(split_pattern).select{ |w| w=~ pattern }.length }
+            str.split(split_pattern)
           else
-            { name.to_s => str.split().select{ |w| w =~ pattern }.length }
+            str.split
           end
+        end
+
+        self.send( :define_method, name.to_s + "_select") do |strs|
+          strs.select{ |w| w=~ pattern }
+        end
+
+        self.send( :define_method, name.to_s + "_split_select" ) do |str|
+          strs = self.send(name.to_s + "_split", str)
+          self.send(name.to_s + "_select", strs )
+        end
+
+        self.send(:define_method, name.to_s + "_context" ) do |str|
+          { name.to_s => self.send(name.to_s + "_split_select", str).length }
         end
       end
     end
@@ -170,7 +187,7 @@ module MaxentStringClassifier
     def_split_select_feature( :c_word,     /[[:alpha:]]+/ )
     def_split_select_feature( :c_cap_word, /[[:upper:]]\w*/ )
     def_split_select_feature( :c_natnum,   /^\d+$/ )
-    def_split_select_feature( :c_punct, /[#{PUNCT}]+/ )
+    def_split_select_feature( :c_punct, /(^[#{PUNCT}]+\w*)|(\w*[#{PUNCT}]+)$/ )
 
     def_regex_feature( :c_telno,  /([\d\+\-\(\)][\d\+\-\(\)\s]{3,})[^\d\+\-\(\)]/ )
     def_regex_feature( :c_url,   /(?:(?:http|ftp|mailto)\:\S+)|(?:www\.(?:\w+\.)+\w+)/ )
