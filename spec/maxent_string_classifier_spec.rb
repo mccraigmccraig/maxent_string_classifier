@@ -25,6 +25,16 @@ module MaxentStringClassifier
       test_cg(:char_counts, "some chars chars", { "1c:s"=>3, "1c:o"=>1, "1c:m"=>1, "1c:e"=>1, "1c:c"=>2, "1c:h"=>2, "1c:a"=>2, "1c:r"=>2 } )
     end
 
+    it "should have a char_bigram_counts featureset which counts character bigrams" do
+      test_cg(:char_bigram_counts, "one mon", 
+              { "2c:on"=>2, "2c:ne"=>1, "2c:mo"=>1 })
+    end
+
+    it "should have a char_trigram_counts featureset which counts character trigrams" do
+      test_cg(:char_trigram_counts, "bank ewbanks",
+              { "3c:ban"=>2, "3c:ank"=>2, "3c:ewb"=>1, "3c:wba"=>1, "3c:nks"=>1 })
+    end
+
     it "should have a bigram_counts_context featureset which counts bigrams" do
       g = ContextGenerator.new(:bigram_counts)
       str = "one two three one two"
