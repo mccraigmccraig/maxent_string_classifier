@@ -167,21 +167,53 @@ module MaxentStringClassifier
           { name.to_s => self.send(name.to_s + "_split_select", str).length }
         end
       end
+
+      # def a featureset which currys some args into another method
+      def def_curry_feature( name, curried_method_name, *curry_args )
+        curried_method = self.instance_method(curried_method_name.to_s)
+        self.send(:define_method, name.to_s + "_context" ) do |str|
+          curried_method.bind(self).call( str, *curry_args )
+        end
+      end
     end
 
     class << self
       include FeatureGenerators
     end
     
-    # a featureset which defines a feature for each word occuring in the string, with a count
-    def word_counts_context( str )
-      str.downcase.split().select{ |w| w=~ /[[:alpha:]]+/ }.inject(Hash.new(0.0)){ |cnts,str| cnts["w:#{str}"] += 1 ; cnts }
+    def ngram_counts_context(str, n)
+      toks = str.downcase.split
+      shifted = []
+      (1...n).each{ |i| shifted << toks[i..-1] }
+      n_grams = toks.zip(*shifted).select{ |n_gram| n_gram.select{ |w| w=~ /[[:alpha:]]+/ }.length==n }
+      n_grams.inject(Hash.new(0.0)){ |cnts,n_gram| cnts["#{n}w:#{n_gram.join('_')}"]+=1 ; cnts}
     end
 
     # a featureset which defines a feature for each character occuring in the string, with a count
     def char_counts_context( str )
       str.gsub( /\s/, "").split('').inject(Hash.new(0.0)){ |cnts,char| cnts["c:#{char}"] += 1 ; cnts}
     end
+
+    def char_ngram_counts_context(str, n)
+      toks = str.downcase.split
+      cnts = Hash.new(0.0)
+      toks.each do |tok|
+        chars = tok.split("")
+        shifted=[]
+        (1...n).each{ |i| shifted << chars[i..-1] }
+        n_grams = chars.zip(*shifted).select{ |n_gram| n_gram.length == n_gram.compact.length }
+        n_grams.each{ |n_gram| cnts["#{n}c:#{n_gram.join("")}"] += 1} 
+      end
+      cnts
+    end
+
+    def_curry_feature( :word_counts, :ngram_counts_context, 1 )
+    def_curry_feature( :bigram_counts, :ngram_counts_context, 2 )
+    def_curry_feature( :trigram_counts, :ngram_counts_context, 3 )
+
+    def_curry_feature( :char_counts, :char_ngram_counts_context, 1)
+    def_curry_feature( :char_bigram_counts, :char_ngram_counts_context, 2)
+    def_curry_feature( :char_trigram_counts, :char_ngram_counts_context, 3)
 
     def_split_select_feature( :c_token,    /.*/ )
     def_split_select_feature( :c_word,     /[[:alpha:]]+/ )

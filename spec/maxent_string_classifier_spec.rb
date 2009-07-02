@@ -18,11 +18,33 @@ module MaxentStringClassifier
     end
 
     it "should have a word_counts featureset which counts words" do
-      test_cg(:word_counts, "some word word repeated", { "w:some"=>1, "w:word"=>2, "w:repeated"=>1})
+      test_cg(:word_counts, "some word word repeated", { "1w:some"=>1, "1w:word"=>2, "1w:repeated"=>1})
     end
 
     it "should have a char_counts featureset which counts characters" do
-      test_cg(:char_counts, "some chars chars", { "c:s"=>3, "c:o"=>1, "c:m"=>1, "c:e"=>1, "c:c"=>2, "c:h"=>2, "c:a"=>2, "c:r"=>2 } )
+      test_cg(:char_counts, "some chars chars", { "1c:s"=>3, "1c:o"=>1, "1c:m"=>1, "1c:e"=>1, "1c:c"=>2, "1c:h"=>2, "1c:a"=>2, "1c:r"=>2 } )
+    end
+
+    it "should have a bigram_counts_context featureset which counts bigrams" do
+      g = ContextGenerator.new(:bigram_counts)
+      str = "one two three one two"
+      ctx = g.generate(str)
+      ctx.length.should ==(3)
+      ctx.should ==({ "2w:one_two"=>2, 
+                      "2w:two_three"=>1,
+                      "2w:three_one"=>1})
+    end
+    
+    it "should have a trigram_counts_context featureset which counts trigrams" do
+      g = ContextGenerator.new(:trigram_counts)
+      str = "one two three one two three four"
+      ctx = g.generate(str)
+      ctx.length.should ==(4)
+      ctx.should ==({ "3w:one_two_three"=>2,
+                      "3w:two_three_one"=>1,
+                      "3w:three_one_two"=>1,
+                      "3w:two_three_four"=>1
+                    })
     end
 
     it "should have a c_tokens featureset which counts tokens" do
