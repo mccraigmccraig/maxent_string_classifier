@@ -189,11 +189,6 @@ module MaxentStringClassifier
       n_grams.inject(Hash.new(0.0)){ |cnts,n_gram| cnts["#{n}w:#{n_gram.join('_')}"]+=1 ; cnts}
     end
 
-    # a featureset which defines a feature for each character occuring in the string, with a count
-    def char_counts_context( str )
-      str.gsub( /\s/, "").split('').inject(Hash.new(0.0)){ |cnts,char| cnts["c:#{char}"] += 1 ; cnts}
-    end
-
     def char_ngram_counts_context(str, n)
       toks = str.downcase.split
       cnts = Hash.new(0.0)
