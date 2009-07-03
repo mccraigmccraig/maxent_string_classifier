@@ -36,25 +36,19 @@ module MaxentStringClassifier
     end
 
     it "should have a bigram_counts_context featureset which counts bigrams" do
-      g = ContextGenerator.new(:bigram_counts)
-      str = "one two three one two"
-      ctx = g.generate(str)
-      ctx.length.should ==(3)
-      ctx.should ==({ "2w:one_two"=>2, 
-                      "2w:two_three"=>1,
-                      "2w:three_one"=>1})
+      test_cg(:bigram_counts, "one two three one two",
+              { "2w:one_two"=>2, 
+                "2w:two_three"=>1,
+                "2w:three_one"=>1})
     end
     
     it "should have a trigram_counts_context featureset which counts trigrams" do
-      g = ContextGenerator.new(:trigram_counts)
-      str = "one two three one two three four"
-      ctx = g.generate(str)
-      ctx.length.should ==(4)
-      ctx.should ==({ "3w:one_two_three"=>2,
-                      "3w:two_three_one"=>1,
-                      "3w:three_one_two"=>1,
-                      "3w:two_three_four"=>1
-                    })
+      test_cg(:trigram_counts, "one two three one two three four",
+              { "3w:one_two_three"=>2,
+                "3w:two_three_one"=>1,
+                "3w:three_one_two"=>1,
+                "3w:two_three_four"=>1
+              })
     end
 
     it "should have a c_tokens featureset which counts tokens" do

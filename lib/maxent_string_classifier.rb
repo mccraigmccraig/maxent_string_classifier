@@ -215,8 +215,9 @@ module MaxentStringClassifier
     def_split_select_feature( :c_cap_word, /[[:upper:]]\w*/ )
     def_split_select_feature( :c_natnum,   /^\d+$/ )
     def_split_select_feature( :c_punct, /(^[#{PUNCT}]+\w*)|(\w*[#{PUNCT}]+)$/ )
+    def_split_select_feature( :c_path, /\S+/ )
 
-    def_regex_feature( :c_telno,  /([\d\+\-\(\)][\d\+\-\(\)\s]{3,})[^\d\+\-\(\)]/ )
+    def_regex_feature( :c_telno,  /([\d\+\-\(\)][\d\+\-\(\)\s]{3,})(?:[^\d\+\-\(\)]|$)/ )
     def_regex_feature( :c_url,   /(?:(?:http|ftp|mailto)\:\S+)|(?:www\.(?:\w+\.)+\w+)/ )
     def_regex_feature( :c_email, /\S+@(?:\w+\.)+\w+/ )
   end
