@@ -5,7 +5,8 @@ require 'rubygems'
 require 'spec'
 require 'yaml'
 require 'fileutils'
-require File.expand_path( File.join( File.dirname(__FILE__) , ".." , "lib", "maxent_string_classifier" ) )
+$: << File.expand_path( File.join( File.dirname(__FILE__) , ".." , "lib" ))
+require 'maxent_string_classifier'
 
 module MaxentStringClassifier
 
@@ -26,12 +27,12 @@ module MaxentStringClassifier
     end
 
     it "should have a char_bigram_counts featureset which counts character bigrams" do
-      test_cg(:char_bigram_counts, "one mon", 
+      test_cg(:char_bigram_counts, "one foo23 mon", 
               { "2c:on"=>2, "2c:ne"=>1, "2c:mo"=>1 })
     end
 
     it "should have a char_trigram_counts featureset which counts character trigrams" do
-      test_cg(:char_trigram_counts, "bank ewbanks",
+      test_cg(:char_trigram_counts, "bank 001 ewbanks",
               { "3c:ban"=>2, "3c:ank"=>2, "3c:ewb"=>1, "3c:wba"=>1, "3c:nks"=>1 })
     end
 
