@@ -25,4 +25,7 @@ lib/maxent_string_classifier.rb
 lib/model.rb
 lib/trove.jar
 maxent_string_classifier.gemspec
-spec/maxent_string_classifier_spec.rb
+spec/context_generator_spec.rb
+spec/fileset_event_stream_spec.rb
+spec/loader_spec.rb
+spec/model_spec.rb
