@@ -15,7 +15,6 @@ module MaxentStringClassifier
       
       if cleanup.nil?
         @cleanup_proc = Proc.new{ |str| str.gsub( /(\s|^)([#{PUNCT}]*)(\w+)([#{PUNCT}]*)(?=\s|$)/ , '\1 \2 \3 \4').gsub(/\s+/,' ').gsub(/\\[tnrfbaes]/, ' ') }
-#        @cleanup_proc = Proc.new{ |str| str.gsub( /([#{PUNCT}]+)/ , ' \1 ').gsub(/\s+/,' ').gsub(/\\[tnrfbaes]/, ' ') }
       elsif cleanup.is_a? Proc
         @cleanup_proc = cleanup
       else
