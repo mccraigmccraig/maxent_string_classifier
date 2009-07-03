@@ -114,7 +114,7 @@ module MaxentStringClassifier
       it "should split punctuation away from words" do
         g = ContextGenerator.new(:c_token)
         g.cleanup("+words\" with, ?punctuation! . attached# %@front (and& back*").gsub(/ +/, ' ').should ==(
-          "+ words \" with , ? punctuation ! . attached # %@ front ( and & back *" )                                                                                                        
+          " + words \" with , ? punctuation ! . attached # %@ front ( and & back *" )                                                                                                        
       end
     end
 

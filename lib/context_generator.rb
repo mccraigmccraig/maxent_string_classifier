@@ -14,7 +14,8 @@ module MaxentStringClassifier
       raise "must give some featureset names" if @featuresets.length == 0
       
       if cleanup.nil?
-        @cleanup_proc = Proc.new{ |str| str.gsub( /(\s|^)([#{PUNCT}]*)(\w+)([#{PUNCT}]*)(?=\s|$)/ , '\1\2 \3 \4').gsub(/\s+/,' ').gsub(/\\[tnrfbaes]/, ' ') }
+        @cleanup_proc = Proc.new{ |str| str.gsub( /(\s|^)([#{PUNCT}]*)(\w+)([#{PUNCT}]*)(?=\s|$)/ , '\1 \2 \3 \4').gsub(/\s+/,' ').gsub(/\\[tnrfbaes]/, ' ') }
+#        @cleanup_proc = Proc.new{ |str| str.gsub( /([#{PUNCT}]+)/ , ' \1 ').gsub(/\s+/,' ').gsub(/\\[tnrfbaes]/, ' ') }
       elsif cleanup.is_a? Proc
         @cleanup_proc = cleanup
       else
@@ -110,23 +111,38 @@ module MaxentStringClassifier
       include FeatureGenerators
     end
     
+    # array of arrays of plain word runs. non-internal puncuation ends runs
+    # internal punctuation is replaced with a space
+    def word_seqs(str)
+      runs = str.split( /(?:\s[#{PUNCT}]+)|(?:[#{PUNCT}]+\s)/ )
+      runs.map do |run|
+        run.gsub(/[#{PUNCT}]+/,' ').split(/\s/).select{ |w| w !~ /\s/ }
+      end
+    end
+
     # word ngrams from [:alpha:] only words
     def ngram_counts_context(str, n)
-      toks = str.downcase.split
-      return {} if toks.length<n
-      shifted = []
-      (1...n).each{ |i| shifted << toks[i..-1] }
-      n_grams = toks.zip(*shifted).select{ |n_gram| n_gram.select{ |w| w=~ /^[[:alpha:]]+$/ }.length==n }
-      n_grams.inject(Hash.new(0.0)){ |cnts,n_gram| cnts["#{n}w:#{n_gram.join('_')}"]+=1 ; cnts}
+      seqs = word_seqs(str)
+      cnts = Hash.new(0.0)
+      seqs.each do |words|
+        next if words.length<n
+        toks = words.map(&:downcase)
+        shifted = []
+        (1...n).each{ |i| shifted << toks[i..-1] }
+        n_grams = toks.zip(*shifted).select{ |n_gram| n_gram.select{ |w| w=~ /^[[:alpha:]]+$/ }.length==n }
+        n_grams.each{ |n_gram| cnts["#{n}w:#{n_gram.join('_')}"]+=1 }
+      end
+      cnts
     end
 
     # character ngrams from [:alpha:] only words
     def char_ngram_counts_context(str, n)
-      toks = str.downcase.split.select{ |w| w =~ /^[[:alpha:]]+$/ }
+      seqs = word_seqs(str)
       cnts = Hash.new(0.0)
+      toks = seqs.flatten.map(&:downcase).select{ |w| w =~ /^[[:alpha:]]+$/ }
       toks.each do |tok|
         chars = tok.split("")
-        return {} if chars.length<n
+        next if chars.length<n
         shifted=[]
         (1...n).each{ |i| shifted << chars[i..-1] }
         n_grams = chars.zip(*shifted).select{ |n_gram| n_gram.length == n_gram.compact.length }
