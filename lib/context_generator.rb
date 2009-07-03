@@ -113,6 +113,7 @@ module MaxentStringClassifier
     # word ngrams from [:alpha:] only words
     def ngram_counts_context(str, n)
       toks = str.downcase.split
+      return {} if toks.length<n
       shifted = []
       (1...n).each{ |i| shifted << toks[i..-1] }
       n_grams = toks.zip(*shifted).select{ |n_gram| n_gram.select{ |w| w=~ /^[[:alpha:]]+$/ }.length==n }
@@ -125,6 +126,7 @@ module MaxentStringClassifier
       cnts = Hash.new(0.0)
       toks.each do |tok|
         chars = tok.split("")
+        return {} if chars.length<n
         shifted=[]
         (1...n).each{ |i| shifted << chars[i..-1] }
         n_grams = chars.zip(*shifted).select{ |n_gram| n_gram.length == n_gram.compact.length }

@@ -1,6 +1,8 @@
 raise "JRuby only" if RUBY_PLATFORM !~ /java/i
 
-Dir[ File.join( File.dirname(__FILE__), "*.jar") ].each do |f|
+wd = File.join( File.dirname(__FILE__))
+$: << wd if !$:.include?(wd)
+Dir[ File.join( wd, "*.jar") ].each do |f|
   require f
 end
 require 'yaml'

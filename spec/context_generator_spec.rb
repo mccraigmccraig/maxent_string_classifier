@@ -35,6 +35,10 @@ module MaxentStringClassifier
               { "3c:ban"=>2, "3c:ank"=>2, "3c:ewb"=>1, "3c:wba"=>1, "3c:nks"=>1 })
     end
 
+    it "should return an empty Hash if there are no character bigrams" do
+      test_cg(:char_bigram_counts, "o", {})
+    end
+
     it "should have a bigram_counts_context featureset which counts bigrams" do
       test_cg(:bigram_counts, "one two three one two",
               { "2w:one_two"=>2, 
@@ -49,6 +53,10 @@ module MaxentStringClassifier
                 "3w:three_one_two"=>1,
                 "3w:two_three_four"=>1
               })
+    end
+
+    it "should return and empty Hash if there are no bigrams" do
+      test_cg(:bigram_counts, "one", {})
     end
 
     it "should have a c_tokens featureset which counts tokens" do
