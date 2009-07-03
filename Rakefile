@@ -6,7 +6,8 @@ require 'rake/gempackagetask'
 require 'rake/clean'
 require 'spec/rake/spectask'
 require 'hoe'
-require 'lib/maxent_string_classifier'
+$: << File.join(Rake.original_dir, "lib")
+require 'maxent_string_classifier'
 
 CLEAN << 'pkg'
 

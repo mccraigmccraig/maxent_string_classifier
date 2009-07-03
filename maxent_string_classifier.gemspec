@@ -4,11 +4,11 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["craig mcmillan"]
-  s.date = %q{2009-07-01}
+  s.date = %q{2009-07-03}
   s.description = %q{maxent_string_classifier is a JRuby library, which wraps the OpenNLP Maxent classifier and makes it easy to train and use string classifiers}
   s.email = %q{craig@trampolinesystems.com}
   s.extra_rdoc_files = ["History.txt", "Manifest.txt", "README.txt"]
-  s.files = ["History.txt", "Manifest.txt", "README.txt", "Rakefile", "data/language/af.txt", "data/language/de.txt", "data/language/en.txt", "data/language/fr.txt", "data/language/language.txt.gz", "data/language/model.yml", "data/language/no.txt", "data/language/test/af.txt", "data/language/test/de.txt", "data/language/test/en.txt", "data/language/test/fr.txt", "data/language/test/no.txt", "init.rb", "lib/maxent-2.5.2.jar", "lib/maxent_string_classifier.rb", "lib/trove.jar", "maxent_string_classifier.gemspec", "spec/maxent_string_classifier_spec.rb"]
+  s.files = ["History.txt", "Manifest.txt", "README.txt", "Rakefile", "data/language/af.txt", "data/language/de.txt", "data/language/en.txt", "data/language/fr.txt", "data/language/language.txt.gz", "data/language/model.yml", "data/language/no.txt", "data/language/test/af.txt", "data/language/test/de.txt", "data/language/test/en.txt", "data/language/test/fr.txt", "data/language/test/no.txt", "init.rb", "lib/constants.rb", "lib/context_generator.rb", "lib/fileset_event_stream.rb", "lib/loader.rb", "lib/maxent-2.5.2.jar", "lib/maxent_logger.rb", "lib/maxent_string_classifier.rb", "lib/model.rb", "lib/trove.jar", "maxent_string_classifier.gemspec", "spec/maxent_string_classifier_spec.rb"]
   s.has_rdoc = true
   s.homepage = %q{this code was developed by trampoline systems [ http://trampolinesystems.com ]}
   s.rdoc_options = ["--main", "README.txt"]

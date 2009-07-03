@@ -15,8 +15,14 @@ data/language/test/en.txt
 data/language/test/fr.txt
 data/language/test/no.txt
 init.rb
+lib/constants.rb
+lib/context_generator.rb
+lib/fileset_event_stream.rb
+lib/loader.rb
 lib/maxent-2.5.2.jar
+lib/maxent_logger.rb
 lib/maxent_string_classifier.rb
+lib/model.rb
 lib/trove.jar
 maxent_string_classifier.gemspec
 spec/maxent_string_classifier_spec.rb
