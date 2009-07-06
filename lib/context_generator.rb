@@ -162,8 +162,14 @@ module MaxentStringClassifier
     def_split_select_feature( :c_word,     /[[:alpha:]]+/ )
     def_split_select_feature( :c_cap_word, /[[:upper:]]\w*/ )
     def_split_select_feature( :c_natnum,   /^\d+$/ )
+    # punct-only tokens
     def_split_select_feature( :c_punct, /(^[#{PUNCT}]+\w*)|(\w*[#{PUNCT}]+)$/ )
-    def_split_select_feature( :c_path, /\S+/ )
+    # internal punctuation e.g. "I've", "don't"
+    def_split_select_feature( :c_internal_punct, /^\w+[#{PUNCT}]+\w+$/ )
+    # windows or unix pathnames
+    def_split_select_feature( :c_path, /^(?:\\\\[[:alpha:]]+|[[:alpha:]]\:)?[\/\\]?(?:\S+[\/\\]\S*)+$/ )
+
+    # count of internal punctuation and external punctuation
 
     def_regex_feature( :c_telno,  /([\d\+\-\(\)][\d\+\-\(\)\s]{3,})(?:[^\d\+\-\(\)]|$)/ )
     def_regex_feature( :c_url,   /(?:(?:http|ftp|mailto)\:\S+)|(?:www\.(?:\w+\.)+\w+)/ )
