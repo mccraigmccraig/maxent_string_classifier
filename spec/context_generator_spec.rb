@@ -103,6 +103,24 @@ module MaxentStringClassifier
               { "c_email"=>4 })
     end
 
+    it "should have a c_punct featureset which counts punctuation tokens" do
+      test_cg(:c_punct,
+              "inter!nal punct should {}! not ^& be cou!nted *()",
+              { "c_punct"=>3 })
+    end
+
+    it "should have a c_internal_punct featureset which counts words with internal punctuation" do
+      test_cg(:c_internal_punct,
+              "inter!nal punct should {}! to%o ^& be cou!nted *()",
+              { "c_internal_punct"=>3 })
+    end
+
+    it "should have a c_path featureset which counts windows and unix pathnames" do
+      test_cg(:c_path,
+              "some windows paths c:\\a c:a\\b \\\\net\\a and some unix paths a/b /a/b/c/",
+              { "c_path"=>5 })
+    end
+
     it "should be able to use a custom cleanup block" do
       g = ContextGenerator.new(:c_token, Proc.new{ |str| str.gsub(/%%/, ' ') } )
       str = "one%%two%%three and four"
@@ -113,8 +131,8 @@ module MaxentStringClassifier
     describe "cleanup" do
       it "should split punctuation away from words" do
         g = ContextGenerator.new(:c_token)
-        g.cleanup("+words\" with, ?punctuation! . attached# %@front (and& back*").gsub(/ +/, ' ').should ==(
-          " + words \" with , ? punctuation ! . attached # %@ front ( and & back *" )                                                                                                        
+        g.cleanup("+words\" with, ?punc+=tuation! . atta-ched# %@front (and& back*").gsub(/ +/, ' ').should ==(
+          "+ words \" with , ? punc+=tuation ! . atta-ched # %@ front ( and & back *" )                                                                                                        
       end
     end
 

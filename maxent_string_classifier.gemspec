@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["craig mcmillan"]
-  s.date = %q{2009-07-03}
+  s.date = %q{2009-07-06}
   s.description = %q{maxent_string_classifier is a JRuby library, which wraps the OpenNLP Maxent classifier and makes it easy to train and use string classifiers}
   s.email = %q{craig@trampolinesystems.com}
   s.extra_rdoc_files = ["History.txt", "Manifest.txt", "README.txt"]

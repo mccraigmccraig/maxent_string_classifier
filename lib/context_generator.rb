@@ -14,7 +14,8 @@ module MaxentStringClassifier
       raise "must give some featureset names" if @featuresets.length == 0
       
       if cleanup.nil?
-        @cleanup_proc = Proc.new{ |str| str.gsub( /(\s|^)([#{PUNCT}]*)(\w+)([#{PUNCT}]*)(?=\s|$)/ , '\1 \2 \3 \4').gsub(/\s+/,' ').gsub(/\\[tnrfbaes]/, ' ') }
+        # put a space between words and leading or trailing punctuation
+        @cleanup_proc = Proc.new{ |str| str.gsub( /(?<=\s|^)([#{PUNCT}]+)(\w+)/, '\1 \2').gsub( /(\w+)([#{PUNCT}]+)(?=\s|$)/ , '\1 \2').gsub(/\s+/,' ') }
       elsif cleanup.is_a? Proc
         @cleanup_proc = cleanup
       else
